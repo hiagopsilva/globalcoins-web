@@ -3,5 +3,5 @@ export default function Home() {
     <div>
       <h1>Global Coins Web</h1>
     </div>
-  );
+  )
 }
