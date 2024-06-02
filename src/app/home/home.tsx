@@ -5,7 +5,11 @@ import {
   Content,
   ContentGraphic,
   Line,
+  SelectHistoric,
   TableStyled,
+  Title,
+  WrapperGraphic,
+  WrapperSearch,
   WrapperTable,
 } from './styles'
 import Menu from '@/components/Menu'
@@ -18,16 +22,28 @@ const Home: React.FC = () => {
 
       <Content>
         <Line>
-          <ContentGraphic>
-            <Chart />
-          </ContentGraphic>
+          <WrapperGraphic>
+            <Title>Gráfico de moedas</Title>
+            <ContentGraphic>
+              <Chart />
+            </ContentGraphic>
+          </WrapperGraphic>
 
-          <ContentGraphic>
-            <Chart />
-          </ContentGraphic>
+          <WrapperGraphic>
+            <WrapperSearch>
+              <Title>Histórico</Title>
+
+              <SelectHistoric></SelectHistoric>
+            </WrapperSearch>
+
+            <ContentGraphic>
+              <Chart />
+            </ContentGraphic>
+          </WrapperGraphic>
         </Line>
 
         <WrapperTable>
+          <Title>Lista de Moedas</Title>
           <TableStyled />
 
           {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((item) => (

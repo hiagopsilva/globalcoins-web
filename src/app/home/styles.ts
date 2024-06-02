@@ -1,4 +1,5 @@
 import CardCoin from '@/components/CardCoin'
+import Select from '@/components/Select'
 import Table from '@/components/Table'
 import styled from 'styled-components'
 
@@ -14,6 +15,17 @@ export const Content = styled.div`
 export const WrapperTable = styled.div`
   width: 90%;
   margin: 0 auto;
+`
+
+export const Title = styled.h1`
+  color: #333;
+  font-size: 32px;
+  font-weight: 600;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    font-size: 26px;
+    margin: 24px 0px 12px;
+  }
 `
 
 export const TableStyled = styled(Table)`
@@ -48,10 +60,8 @@ export const Line = styled.div`
   }
 `
 
-export const ContentGraphic = styled.div`
+export const WrapperGraphic = styled.div`
   width: 50%;
-  border: 1px solid #ddd;
-  border-radius: 8px;
 
   & + & {
     margin-left: 16px;
@@ -68,3 +78,29 @@ export const ContentGraphic = styled.div`
     }
   }
 `
+
+export const ContentGraphic = styled.div`
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-top: 12px;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    width: 100%;
+
+    overflow-x: scroll;
+
+    & + & {
+      margin-left: 0;
+    }
+  }
+`
+
+export const WrapperSearch = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+`
+
+export const SelectHistoric = styled(Select)``
