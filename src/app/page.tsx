@@ -1,4 +1,4 @@
-import LoginContainer from './login'
+import HomeContainer from './home'
 
 export default function Home() {
   return (
@@ -6,6 +6,7 @@ export default function Home() {
     //   <h1>Global Coins Web</h1>
     // </div>
 
-    <LoginContainer />
+    // <LoginContainer />
+    <HomeContainer />
   )
 }
