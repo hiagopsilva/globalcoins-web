@@ -2,6 +2,7 @@ import Image from 'next/image'
 import styled from 'styled-components'
 
 import Button from '../../components/Button'
+import TextInput from '@/components/TextInput'
 
 export const Container = styled.div`
   width: 100vw;
@@ -34,6 +35,7 @@ export const Title = styled.h1`
 `
 
 export const Description = styled.div`
+  margin-top: 4px;
   font-size: 14px;
   color: #959595;
 `
@@ -43,6 +45,15 @@ export const Form = styled.div`
   flex-direction: column;
 `
 
-export const Input = styled.input``
+export const Input = styled(TextInput)`
+  &:first-child {
+    margin-top: 20px;
+  }
+
+  & + & {
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
+`
 
 export const ButtonStyled = styled(Button)``
