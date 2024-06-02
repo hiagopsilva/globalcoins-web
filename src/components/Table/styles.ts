@@ -25,7 +25,7 @@ export const Wrapper = styled.table`
     border: 0;
     font-size: 16px;
     font-weight: 500;
-    background-color: #ddd;
+    background-color: #f7f7f7;
   }
 
   td:first-child {
