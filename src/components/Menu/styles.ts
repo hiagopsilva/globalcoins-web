@@ -91,7 +91,7 @@ export const ContainerMenuMobile = styled.div`
     width: 100%;
 
     justify-content: space-between;
-    padding: 24px 16px;
+    padding: 24px 16px 14px;
     border-bottom: 1px solid #ddd;
   }
 `
