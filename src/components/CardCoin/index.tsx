@@ -1,13 +1,6 @@
 import React from 'react'
-import {
-  CheckboxFavorite,
-  Container,
-  Description,
-  IconFavorite,
-  IconFavoriteChecked,
-  Title,
-  WrapperLine,
-} from './styles'
+import { Container, Description, Title, WrapperLine } from './styles'
+import CheckboxFavorite from '../CheckboxFavorite'
 
 const CardCoin: React.FC = ({ ...rest }) => {
   return (
@@ -15,10 +8,7 @@ const CardCoin: React.FC = ({ ...rest }) => {
       <WrapperLine>
         <Title>EUA / BRL</Title>
         <Description>
-          <CheckboxFavorite
-            icon={<IconFavorite />}
-            checkedIcon={<IconFavoriteChecked />}
-          />
+          <CheckboxFavorite />
         </Description>
       </WrapperLine>
       <WrapperLine>
