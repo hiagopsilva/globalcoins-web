@@ -4,6 +4,7 @@
     "next/core-web-vitals"
   ],
   "rules": {
-    "import/no-named-default": "off"
+    "import/no-named-default": "off",
+    "@typescript-eslint/no-namespace": "off"
   }
 }

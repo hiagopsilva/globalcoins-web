@@ -5,12 +5,17 @@ import Login from './login'
 import { initialValues, validationForm } from './form'
 
 import { Formik } from 'formik'
+import request from '@/service/request'
 
 const LoginContainer: React.FC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const submitForm = async (values: any) => {
-    console.log({ values })
-    alert(JSON.stringify(values))
+  const submitForm = async (values: UserType.loginPayload) => {
+    try {
+      const response = await request.post('/auth', values)
+
+      localStorage.setItem('TOKEN', response.data.access_token)
+    } catch (error) {
+      console.log({ error })
+    }
   }
   return (
     <Formik

@@ -8,8 +8,7 @@ type Props = {
   placeholder?: string
   id?: string
   values: string | number
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  handleChange: (e: string | React.ChangeEvent<any>) => void
+  handleChange: (e: string | React.ChangeEvent<UserType.loginPayload>) => void
 }
 
 const TextInput: React.FC<Props> = ({
