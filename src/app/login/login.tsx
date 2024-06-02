@@ -13,7 +13,16 @@ import {
   WrapperLogo,
 } from './styles'
 
+import { FormikProps, useFormikContext } from 'formik'
+
 const Login: React.FC = () => {
+  const {
+    values,
+    submitForm,
+    handleChange,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  }: FormikProps<any> = useFormikContext()
+
   return (
     <Container>
       <WrapperLogo>
@@ -26,9 +35,23 @@ const Login: React.FC = () => {
           <Description>Informe seus dados para fazer o login.</Description>
 
           <Form>
-            <Input type="text" placeholder="Usuário" />
-            <Input type="password" placeholder="Senha" />
-            <ButtonStyled variant="contained">Entrar</ButtonStyled>
+            <Input
+              type="text"
+              placeholder="E-mail"
+              id="email"
+              values={values}
+              handleChange={handleChange('email')}
+            />
+            <Input
+              type="password"
+              placeholder="Senha"
+              id="password"
+              values={values}
+              handleChange={handleChange('password')}
+            />
+            <ButtonStyled onClick={submitForm} variant="contained">
+              Entrar
+            </ButtonStyled>
           </Form>
         </ContentForm>
       </WrapperForm>

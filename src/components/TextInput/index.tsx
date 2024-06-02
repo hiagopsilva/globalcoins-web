@@ -6,17 +6,27 @@ type Props = {
   variant?: TextFieldVariants
   type?: string
   placeholder?: string
+  id?: string
+  values: string | number
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  handleChange: (e: string | React.ChangeEvent<any>) => void
 }
 
 const TextInput: React.FC<Props> = ({
   variant = 'outlined',
   type = 'text',
   placeholder,
+  id,
+  values,
+  handleChange,
   ...rest
 }) => {
   return (
     <TextFieldStyled
+      id={id}
       type={type}
+      values={values}
+      onChange={handleChange}
       label={placeholder}
       variant={variant}
       size="small"
