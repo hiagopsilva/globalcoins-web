@@ -5,19 +5,14 @@ import { Wrapper, TD } from './styles'
 // eslint-disable-next-line @typescript-eslint/ban-types
 type Props = {}
 
-const Table: FC<Props> = () => {
+const TableFavorites: FC<Props> = () => {
   return (
     <Wrapper>
       <thead>
         <tr>
           <th>Favorito</th>
           <th>Nome</th>
-          <th>high</th>
-          <th>low</th>
           <th>varBid</th>
-          <th>pctChange</th>
-          <th>bid</th>
-          <th>ask</th>
         </tr>
       </thead>
 
@@ -27,11 +22,6 @@ const Table: FC<Props> = () => {
             <TD>SIM / NÃO</TD>
             <TD>Dólar Americano/Real Brasileiro</TD>
             <TD>5.2585</TD>
-            <TD>5.1936</TD>
-            <TD>0.0417</TD>
-            <TD>0.8</TD>
-            <TD>5.2443</TD>
-            <TD>5.2459</TD>
           </tr>
         </tbody>
       ))}
@@ -39,4 +29,4 @@ const Table: FC<Props> = () => {
   )
 }
 
-export default Table
+export default TableFavorites

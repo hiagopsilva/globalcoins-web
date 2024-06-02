@@ -14,6 +14,8 @@ export const WrapperTable = styled.div`
 
 export const Line = styled.div`
   margin: 16px 64px;
+  display: flex;
+  flex-direction: row;
 `
 
 export const ContentGraphic = styled.div`
@@ -24,4 +26,8 @@ export const ContentGraphic = styled.div`
 
 export const ContentFavorites = styled.div`
   width: 50%;
+
+  max-height: 300px;
+  overflow: scroll;
+  margin: 0 32px;
 `

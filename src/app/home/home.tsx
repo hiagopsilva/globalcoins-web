@@ -10,6 +10,7 @@ import {
 import Menu from '@/components/Menu'
 import Table from '@/components/Table'
 import Chart from '@/components/Chart'
+import TableFavorites from '@/components/Table Favorites'
 
 const Home: React.FC = () => {
   return (
@@ -22,7 +23,9 @@ const Home: React.FC = () => {
             <Chart />
           </ContentGraphic>
 
-          <ContentFavorites></ContentFavorites>
+          <ContentFavorites>
+            <TableFavorites />
+          </ContentFavorites>
         </Line>
 
         <WrapperTable>
