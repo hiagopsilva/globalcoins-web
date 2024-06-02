@@ -1,14 +1,14 @@
 import React from 'react'
 import {
+  CardCoinStyled,
   Container,
   Content,
   ContentGraphic,
-  ContentHistoric,
   Line,
+  TableStyled,
   WrapperTable,
 } from './styles'
 import Menu from '@/components/Menu'
-import Table from '@/components/Table'
 import Chart from '@/components/Chart'
 
 const Home: React.FC = () => {
@@ -28,7 +28,11 @@ const Home: React.FC = () => {
         </Line>
 
         <WrapperTable>
-          <Table />
+          <TableStyled />
+
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((item) => (
+            <CardCoinStyled key={item} />
+          ))}
         </WrapperTable>
       </Content>
     </Container>

@@ -1,3 +1,5 @@
+import CardCoin from '@/components/CardCoin'
+import Table from '@/components/Table'
 import styled from 'styled-components'
 
 export const Container = styled.div`
@@ -12,6 +14,26 @@ export const Content = styled.div`
 export const WrapperTable = styled.div`
   width: 90%;
   margin: 0 auto;
+`
+
+export const TableStyled = styled(Table)`
+  display: block;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: none;
+  }
+`
+
+export const CardCoinStyled = styled(CardCoin)`
+  display: none;
+
+  & + & {
+    margin-top: 16px;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: block;
+  }
 `
 
 export const Line = styled.div`

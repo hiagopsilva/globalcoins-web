@@ -5,9 +5,9 @@ import { Wrapper, TD } from './styles'
 // eslint-disable-next-line @typescript-eslint/ban-types
 type Props = {}
 
-const Table: FC<Props> = () => {
+const Table: FC<Props> = ({ ...rest }) => {
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       <thead>
         <tr>
           <th>Favorito</th>
@@ -18,6 +18,7 @@ const Table: FC<Props> = () => {
           <th>pctChange</th>
           <th>bid</th>
           <th>ask</th>
+          <th>Timestamp</th>
         </tr>
       </thead>
 
@@ -32,6 +33,7 @@ const Table: FC<Props> = () => {
             <TD>0.8</TD>
             <TD>5.2443</TD>
             <TD>5.2459</TD>
+            <TD>1717189193</TD>
           </tr>
         </tbody>
       ))}
