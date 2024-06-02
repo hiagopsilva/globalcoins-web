@@ -1,12 +1,25 @@
 import React from 'react'
-import { Container, Description, Title, WrapperLine } from './styles'
+import {
+  CheckboxFavorite,
+  Container,
+  Description,
+  IconFavorite,
+  IconFavoriteChecked,
+  Title,
+  WrapperLine,
+} from './styles'
 
 const CardCoin: React.FC = ({ ...rest }) => {
   return (
     <Container {...rest}>
       <WrapperLine>
-        <Title>Code / Codein</Title>
-        <Description>EUA / BRL</Description>
+        <Title>EUA / BRL</Title>
+        <Description>
+          <CheckboxFavorite
+            icon={<IconFavorite />}
+            checkedIcon={<IconFavoriteChecked />}
+          />
+        </Description>
       </WrapperLine>
       <WrapperLine>
         <Title>name</Title>
