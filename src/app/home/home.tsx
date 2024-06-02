@@ -9,6 +9,7 @@ import {
 } from './styles'
 import Menu from '@/components/Menu'
 import Table from '@/components/Table'
+import Chart from '@/components/Chart'
 
 const Home: React.FC = () => {
   return (
@@ -17,7 +18,9 @@ const Home: React.FC = () => {
 
       <Content>
         <Line>
-          <ContentGraphic></ContentGraphic>
+          <ContentGraphic>
+            <Chart />
+          </ContentGraphic>
 
           <ContentFavorites></ContentFavorites>
         </Line>

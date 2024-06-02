@@ -12,8 +12,16 @@ export const WrapperTable = styled.div`
   margin: 0 auto;
 `
 
-export const Line = styled.div``
+export const Line = styled.div`
+  margin: 16px 64px;
+`
 
-export const ContentGraphic = styled.div``
+export const ContentGraphic = styled.div`
+  width: 50%;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+`
 
-export const ContentFavorites = styled.div``
+export const ContentFavorites = styled.div`
+  width: 50%;
+`

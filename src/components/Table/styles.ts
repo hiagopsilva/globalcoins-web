@@ -8,7 +8,7 @@ type PropsTable = {
 }
 
 export const Wrapper = styled.table`
-  width: 90%;
+  width: 100%;
   border-spacing: 0 8px;
   margin: 0 auto;
 
