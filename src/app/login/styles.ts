@@ -12,7 +12,11 @@ export const Container = styled.div`
   align-items: center;
 `
 
-export const WrapperLogo = styled.div``
+export const WrapperLogo = styled.div`
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: none;
+  }
+`
 
 export const Logo = styled(Image)`
   height: 100vh;

@@ -20,8 +20,7 @@ const Login: React.FC = () => {
     values,
     submitForm,
     handleChange,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }: FormikProps<any> = useFormikContext()
+  }: FormikProps<UserType.loginPayload> = useFormikContext()
 
   return (
     <Container>
