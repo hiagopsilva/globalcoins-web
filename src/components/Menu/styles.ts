@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import PersonIcon from '@mui/icons-material/Person'
 import ExitToAppIcon from '@mui/icons-material/ExitToApp'
+import MenuIcon from '@mui/icons-material/Menu'
 
 type PropsOptions = {
   active?: boolean
@@ -14,6 +15,10 @@ export const Container = styled.div`
   justify-content: space-between;
   padding: 16px 64px;
   color: #333;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: none;
+  }
 `
 
 export const NameCompany = styled.span`
@@ -77,3 +82,60 @@ export const ButtonLogout = styled.div`
 `
 
 export const IconLogout = styled(ExitToAppIcon)``
+
+export const ContainerMenuMobile = styled.div`
+  display: none;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    display: flex;
+    width: 100%;
+
+    justify-content: space-between;
+    padding: 24px 16px;
+    border-bottom: 1px solid #ddd;
+  }
+`
+export const NamePageMenu = styled.span`
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+`
+
+export const ButtonIconMenu = styled.button`
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+
+  margin-left: 16px;
+`
+
+export const IconMenu = styled(MenuIcon)`
+  cursor: pointer;
+  color: #ec8f21;
+`
+
+export const ContainerPopover = styled.div`
+  width: 200px;
+  height: 120px;
+`
+
+export const OptionMenuPopover = styled.div`
+  padding: 8px;
+  cursor: pointer;
+
+  & + & {
+    border-top: 1px solid #ddd;
+  }
+
+  &:hover {
+    background-color: #f5f5f5;
+  }
+`
+
+export const WrapperAvatarMenuMobile = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+
+export const TextPopover = styled.span``
