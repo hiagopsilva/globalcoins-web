@@ -1,12 +1,12 @@
 import React from 'react'
 import { Container } from './styles'
-import ReactVirtualizedTable from '@/components/Table'
+import Menu from '@/components/Menu'
 
 const Home: React.FC = () => {
   return (
     <Container>
-      home
-      <ReactVirtualizedTable />
+      {/* <ReactVirtualizedTable /> */}
+      <Menu />
     </Container>
   )
 }
