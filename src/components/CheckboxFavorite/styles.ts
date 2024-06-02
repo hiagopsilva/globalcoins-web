@@ -3,7 +3,7 @@ import { Favorite, FavoriteBorder } from '@mui/icons-material'
 import { Checkbox } from '@mui/material'
 
 export const CheckboxFavoriteStyled = styled(Checkbox).attrs({
-  size: 'large',
+  size: 'medium',
 })``
 
 export const IconFavorite = styled(FavoriteBorder)``
