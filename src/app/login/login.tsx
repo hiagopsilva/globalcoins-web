@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import {
-  Button,
+  ButtonStyled,
   Container,
   ContentForm,
   Description,
@@ -28,7 +28,7 @@ const Login: React.FC = () => {
           <Form>
             <Input type="text" placeholder="Usuário" />
             <Input type="password" placeholder="Senha" />
-            <Button type="submit">Entrar</Button>
+            <ButtonStyled variant="contained">Entrar</ButtonStyled>
           </Form>
         </ContentForm>
       </WrapperForm>

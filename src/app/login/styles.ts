@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import styled from 'styled-components'
 
+import Button from '../../components/Button'
+
 export const Container = styled.div`
   width: 100vw;
   height: 100vh;
@@ -43,4 +45,4 @@ export const Form = styled.div`
 
 export const Input = styled.input``
 
-export const Button = styled.button``
+export const ButtonStyled = styled(Button)``
