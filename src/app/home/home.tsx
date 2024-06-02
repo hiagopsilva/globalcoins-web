@@ -2,15 +2,14 @@ import React from 'react'
 import {
   Container,
   Content,
-  ContentFavorites,
   ContentGraphic,
+  ContentHistoric,
   Line,
   WrapperTable,
 } from './styles'
 import Menu from '@/components/Menu'
 import Table from '@/components/Table'
 import Chart from '@/components/Chart'
-import TableFavorites from '@/components/Table Favorites'
 
 const Home: React.FC = () => {
   return (
@@ -23,9 +22,9 @@ const Home: React.FC = () => {
             <Chart />
           </ContentGraphic>
 
-          <ContentFavorites>
-            <TableFavorites />
-          </ContentFavorites>
+          <ContentGraphic>
+            <Chart />
+          </ContentGraphic>
         </Line>
 
         <WrapperTable>

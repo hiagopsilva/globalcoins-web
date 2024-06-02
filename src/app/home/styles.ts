@@ -18,18 +18,31 @@ export const Line = styled.div`
   margin: 16px 64px;
   display: flex;
   flex-direction: row;
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    margin: 8px 16px;
+
+    flex-direction: column;
+  }
 `
 
 export const ContentGraphic = styled.div`
   width: 50%;
   border: 1px solid #ddd;
   border-radius: 8px;
-`
 
-export const ContentFavorites = styled.div`
-  width: 50%;
+  & + & {
+    margin-left: 16px;
+  }
 
-  max-height: 300px;
-  overflow: scroll;
-  margin: 0 32px;
+  @media (min-width: 200px) and (max-width: 767px) {
+    width: 100%;
+
+    overflow-x: scroll;
+
+    & + & {
+      margin-left: 0;
+      margin-top: 16px;
+    }
+  }
 `
