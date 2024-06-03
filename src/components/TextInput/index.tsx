@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react'
 import { TextFieldStyled } from './styles'
 import { TextFieldVariants } from '@mui/material'
@@ -7,7 +8,8 @@ type Props = {
   type?: string
   placeholder?: string
   id?: string
-  values: string | number
+  className?: string
+  values: any
   handleChange: (e: string | React.ChangeEvent<UserType.loginPayload>) => void
 }
 
@@ -18,11 +20,13 @@ const TextInput: React.FC<Props> = ({
   id,
   values,
   handleChange,
+  className,
   ...rest
 }) => {
   return (
     <TextFieldStyled
       id={id}
+      className={className}
       type={type}
       values={values}
       onChange={handleChange}
