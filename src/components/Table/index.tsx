@@ -3,10 +3,11 @@ import React, { FC } from 'react'
 import { Wrapper, TD } from './styles'
 import CheckboxFavorite from '../CheckboxFavorite'
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-type Props = {}
+type Props = {
+  data: CoinType.List
+}
 
-const Table: FC<Props> = ({ ...rest }) => {
+const Table: FC<Props> = ({ data, ...rest }) => {
   return (
     <Wrapper {...rest}>
       <thead>
@@ -23,20 +24,20 @@ const Table: FC<Props> = ({ ...rest }) => {
         </tr>
       </thead>
 
-      {[1, 2, 3, 4, 5, 4, 4, 4, 4, 4].map((item) => (
-        <tbody key={item}>
+      {data.map((item) => (
+        <tbody key={item.name}>
           <tr className="line">
             <TD>
               <CheckboxFavorite />
             </TD>
-            <TD>Dólar Americano/Real Brasileiro</TD>
-            <TD>5.2585</TD>
-            <TD>5.1936</TD>
-            <TD>0.0417</TD>
-            <TD>0.8</TD>
-            <TD>5.2443</TD>
-            <TD>5.2459</TD>
-            <TD>1717189193</TD>
+            <TD>{item.name}</TD>
+            <TD>{item.high}</TD>
+            <TD>{item.low}</TD>
+            <TD>{item.varBid}</TD>
+            <TD>{item.pctChange}</TD>
+            <TD>{item.bid}</TD>
+            <TD>{item.ask}</TD>
+            <TD>{item.timestamp}</TD>
           </tr>
         </tbody>
       ))}

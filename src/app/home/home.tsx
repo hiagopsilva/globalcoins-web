@@ -16,7 +16,10 @@ import Menu from '@/components/Menu'
 import Chart from '@/components/Chart'
 import Footer from '@/components/Footer'
 
-const Home: React.FC = () => {
+type Props = {
+  listCoins: CoinType.List
+}
+const Home: React.FC<Props> = ({ listCoins }) => {
   return (
     <Container>
       <Menu />
@@ -45,10 +48,10 @@ const Home: React.FC = () => {
 
         <WrapperTable>
           <Title>Lista de Moedas</Title>
-          <TableStyled />
+          <TableStyled data={listCoins} />
 
-          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((item) => (
-            <CardCoinStyled key={item} />
+          {listCoins.map((item) => (
+            <CardCoinStyled key={item.name} data={item} />
           ))}
         </WrapperTable>
       </Content>
