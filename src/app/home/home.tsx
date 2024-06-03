@@ -1,9 +1,12 @@
 import React from 'react'
 import {
   CardCoinStyled,
+  ChartLeft,
+  ChartRight,
   Container,
   Content,
   ContentGraphic,
+  Line,
   SelectHistoric,
   TableStyled,
   Title,
@@ -12,23 +15,32 @@ import {
   WrapperTable,
 } from './styles'
 import Menu from '@/components/Menu'
-import Chart from '@/components/Chart'
 import Footer from '@/components/Footer'
 import Progress from '@/components/Progress'
+import { COINS_CONSTANTS } from '@/utils/constants/coins'
+import { DAYS_CONSTANTS } from '@/utils/constants/days'
 
 type Props = {
   loading: boolean
   listCoins: CoinType.List
   listNamesForGraphic: string[]
   listValuesForGraphic: number[]
+  coin: string
+  days: number
+
+  setDays: (days: number) => void
+  setCoin: (coin: string) => void
 }
 const Home: React.FC<Props> = ({
   loading,
   listCoins,
   listNamesForGraphic,
   listValuesForGraphic,
+  setDays,
+  setCoin,
+  coin,
+  days,
 }) => {
-  console.log({ listCoins })
   return (
     <Container>
       {loading && <Progress />}
@@ -37,26 +49,44 @@ const Home: React.FC<Props> = ({
           <Menu />
 
           <Content>
-            <WrapperGraphic>
-              <WrapperSearch>
+            <Line>
+              <WrapperGraphic>
                 <Title>Histórico</Title>
 
-                <SelectHistoric></SelectHistoric>
-              </WrapperSearch>
+                <ContentGraphic>
+                  <ChartLeft
+                    listNames={listNamesForGraphic}
+                    listValues={listValuesForGraphic}
+                  />
+                </ContentGraphic>
+              </WrapperGraphic>
 
-              <ContentGraphic>
-                <Chart
-                  listNames={listNamesForGraphic}
-                  listValues={listValuesForGraphic}
-                />
-              </ContentGraphic>
-            </WrapperGraphic>
+              <WrapperGraphic>
+                <WrapperSearch>
+                  <SelectHistoric
+                    label="Moeda"
+                    options={COINS_CONSTANTS}
+                    value={coin}
+                    onChange={setCoin}
+                  ></SelectHistoric>
+                  <SelectHistoric
+                    label="Dias"
+                    options={DAYS_CONSTANTS}
+                    value={days}
+                    onChange={setDays}
+                  ></SelectHistoric>
+                </WrapperSearch>
+
+                <ContentGraphic>
+                  <ChartRight listNames={['USD/BRL']} listValues={[1000]} />
+                </ContentGraphic>
+              </WrapperGraphic>
+            </Line>
 
             <WrapperTable>
               <Title>Lista de Moedas</Title>
               <TableStyled data={listCoins} />
 
-              <>{console.log({ listCoins })}</>
               {listCoins.map((item) => (
                 <CardCoinStyled key={item.name} data={item} />
               ))}

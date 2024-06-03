@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Description, Title, WrapperLine } from './styles'
 import CheckboxFavorite from '../CheckboxFavorite'
+import { formatDate } from '@/utils/helpers'
 
 type Props = {
   data: CoinType.Item
@@ -20,32 +21,32 @@ const CardCoin: React.FC<Props> = ({ data, ...rest }) => {
         <Description>{data.name}</Description>
       </WrapperLine>
       <WrapperLine>
-        <Title>high</Title>
+        <Title>Máximo</Title>
         <Description>{data.high}</Description>
       </WrapperLine>
       <WrapperLine>
-        <Title>low</Title>
+        <Title>Mínimo</Title>
         <Description>{data.low}</Description>
       </WrapperLine>
       <WrapperLine>
-        <Title>varBid</Title>
+        <Title>Variação</Title>
         <Description>{data.varBid}</Description>
       </WrapperLine>
       <WrapperLine>
-        <Title>pctChange</Title>
+        <Title>% de Variação</Title>
         <Description>{data.pctChange}</Description>
       </WrapperLine>
       <WrapperLine>
-        <Title>bid</Title>
+        <Title>Venda</Title>
         <Description>{data.bid}</Description>
       </WrapperLine>
       <WrapperLine>
-        <Title>ask</Title>
+        <Title>Compra</Title>
         <Description>{data.ask}</Description>
       </WrapperLine>
       <WrapperLine>
         <Title>Data</Title>
-        <Description>{data.timestamp}</Description>
+        <Description>{formatDate(Number(data.timestamp))}</Description>
       </WrapperLine>
     </Container>
   )

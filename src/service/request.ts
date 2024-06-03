@@ -6,7 +6,7 @@ const request = axios.create({
     'Content-Type': 'application/json',
     Authorization:
       (localStorage && localStorage.getItem('TOKEN')) ||
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcxNzM4MjQ0MiwiZXhwIjoxNzE3NDE4NDQyfQ.Uzw1bk10f1BUELYKyQZdkKn5snbncHX8HJf_gpXe2FA',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcxNzQyNjI3MCwiZXhwIjoxNzE3NDYyMjcwfQ.nu3cv_xEJMi0wXhuxPPeRlLCnWpSG7fsDrVv86SnPRo',
   },
 })
 

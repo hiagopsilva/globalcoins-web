@@ -7,7 +7,7 @@ type Props = {
   width?: number
 }
 
-const Chart: React.FC<Props> = ({ width, listNames, listValues }) => {
+const BarChart: React.FC<Props> = ({ width, listNames, listValues }) => {
   return (
     <BarChartStyled
       xAxis={[
@@ -22,9 +22,8 @@ const Chart: React.FC<Props> = ({ width, listNames, listValues }) => {
         },
       ]}
       width={width}
-      grid={{ vertical: true, horizontal: true }}
     />
   )
 }
 
-export default Chart
+export default BarChart

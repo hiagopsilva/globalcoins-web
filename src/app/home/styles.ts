@@ -1,4 +1,6 @@
+import BarChart from '@/components/BarChart'
 import CardCoin from '@/components/CardCoin'
+import Chart from '@/components/Chart'
 import Select from '@/components/Select'
 import Table from '@/components/Table'
 import styled from 'styled-components'
@@ -48,13 +50,43 @@ export const CardCoinStyled = styled(CardCoin)`
   }
 `
 
-export const WrapperGraphic = styled.div`
+export const Line = styled.div`
   margin: 16px 64px;
+  display: flex;
+  flex-direction: row;
 
   @media (min-width: 200px) and (max-width: 767px) {
-    overflow-x: scroll;
     margin: 8px 16px;
+
+    flex-direction: column;
   }
+`
+
+export const WrapperGraphic = styled.div`
+  width: 100%;
+
+  & + & {
+    margin-left: 16px;
+  }
+
+  @media (min-width: 200px) and (max-width: 767px) {
+    width: 100%;
+
+    overflow-x: scroll;
+
+    & + & {
+      margin-left: 0;
+      margin-top: 16px;
+    }
+  }
+`
+
+export const ChartLeft = styled(Chart).attrs({
+  width: 850,
+})``
+
+export const ChartRight = styled(BarChart)`
+  width: 100%;
 `
 
 export const ContentGraphic = styled.div`
@@ -77,8 +109,13 @@ export const WrapperSearch = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+
+  div {
+    display: flex;
+    flex-direction: row;
+  }
 `
 
 export const SelectHistoric = styled(Select)``
