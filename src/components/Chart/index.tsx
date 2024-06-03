@@ -4,9 +4,10 @@ import { BarChartStyled } from './styles'
 type Props = {
   listNames: string[]
   listValues: number[]
+  width?: number
 }
 
-const Chart: React.FC<Props> = ({ listNames, listValues }) => {
+const Chart: React.FC<Props> = ({ width, listNames, listValues }) => {
   return (
     <BarChartStyled
       xAxis={[
@@ -20,6 +21,7 @@ const Chart: React.FC<Props> = ({ listNames, listValues }) => {
           data: listValues,
         },
       ]}
+      width={width}
     />
   )
 }

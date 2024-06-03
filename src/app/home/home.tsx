@@ -1,9 +1,12 @@
 import React from 'react'
 import {
   CardCoinStyled,
+  ChartLeft,
+  ChartRight,
   Container,
   Content,
   ContentGraphic,
+  Line,
   SelectHistoric,
   TableStyled,
   Title,
@@ -12,7 +15,6 @@ import {
   WrapperTable,
 } from './styles'
 import Menu from '@/components/Menu'
-import Chart from '@/components/Chart'
 import Footer from '@/components/Footer'
 import Progress from '@/components/Progress'
 
@@ -28,7 +30,6 @@ const Home: React.FC<Props> = ({
   listNamesForGraphic,
   listValuesForGraphic,
 }) => {
-  console.log({ listCoins })
   return (
     <Container>
       {loading && <Progress />}
@@ -37,20 +38,30 @@ const Home: React.FC<Props> = ({
           <Menu />
 
           <Content>
-            <WrapperGraphic>
-              <WrapperSearch>
-                <Title>Histórico</Title>
+            <Line>
+              <WrapperGraphic>
+                <Title>Gráfico de moedas</Title>
+                <ContentGraphic>
+                  <ChartLeft
+                    listNames={listNamesForGraphic}
+                    listValues={listValuesForGraphic}
+                  />
+                </ContentGraphic>
+              </WrapperGraphic>
 
-                <SelectHistoric></SelectHistoric>
-              </WrapperSearch>
+              <WrapperGraphic>
+                <WrapperSearch>
+                  <Title>Histórico</Title>
 
-              <ContentGraphic>
-                <Chart
-                  listNames={listNamesForGraphic}
-                  listValues={listValuesForGraphic}
-                />
-              </ContentGraphic>
-            </WrapperGraphic>
+                  <SelectHistoric></SelectHistoric>
+                  <SelectHistoric></SelectHistoric>
+                </WrapperSearch>
+
+                <ContentGraphic>
+                  <ChartRight listNames={['USD/BRL']} listValues={[1000]} />
+                </ContentGraphic>
+              </WrapperGraphic>
+            </Line>
 
             <WrapperTable>
               <Title>Lista de Moedas</Title>
