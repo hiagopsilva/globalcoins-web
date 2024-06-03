@@ -5,15 +5,19 @@ import { formatDate } from '@/utils/helpers'
 
 type Props = {
   data: CoinType.Item
+  handleFavorite: (coin: string) => Promise<void>
 }
 
-const CardCoin: React.FC<Props> = ({ data, ...rest }) => {
+const CardCoin: React.FC<Props> = ({ handleFavorite, data, ...rest }) => {
   return (
     <Container {...rest}>
       <WrapperLine>
         <Title>{`${data.code}/${data.codein}`}</Title>
         <Description>
-          <CheckboxFavorite />
+          <CheckboxFavorite
+            value={data.isFavorite}
+            onClick={() => handleFavorite(`${data.code}-${data.codein}`)}
+          />
         </Description>
       </WrapperLine>
       <WrapperLine>

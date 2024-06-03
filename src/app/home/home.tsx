@@ -90,7 +90,11 @@ const Home: React.FC<Props> = ({
           <TableStyled data={listCoins} handleFavorite={handleFavorite} />
 
           {listCoins.map((item) => (
-            <CardCoinStyled key={item.name} data={item} />
+            <CardCoinStyled
+              handleFavorite={handleFavorite}
+              key={item.name}
+              data={item}
+            />
           ))}
         </WrapperTable>
       </Content>
