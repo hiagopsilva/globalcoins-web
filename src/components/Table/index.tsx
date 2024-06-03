@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 
 import { Wrapper, TD } from './styles'
 import CheckboxFavorite from '../CheckboxFavorite'
+import { formatDate } from '@/utils/helpers'
 
 type Props = {
   data: CoinType.List
@@ -12,15 +13,15 @@ const Table: FC<Props> = ({ data, ...rest }) => {
     <Wrapper {...rest}>
       <thead>
         <tr>
-          <th>Favorito</th>
+          <th></th>
           <th>Nome</th>
-          <th>high</th>
-          <th>low</th>
-          <th>varBid</th>
-          <th>pctChange</th>
-          <th>bid</th>
-          <th>ask</th>
-          <th>Timestamp</th>
+          <th>Máximo</th>
+          <th>Mínimo</th>
+          <th>Variação</th>
+          <th>% de Variação</th>
+          <th>Venda</th>
+          <th>Compra</th>
+          <th>Data</th>
         </tr>
       </thead>
 
@@ -30,14 +31,16 @@ const Table: FC<Props> = ({ data, ...rest }) => {
             <TD>
               <CheckboxFavorite />
             </TD>
-            <TD>{item.name}</TD>
+            <TD>
+              ({item.code}-{item.codein}) - {item.name}
+            </TD>
             <TD>{item.high}</TD>
             <TD>{item.low}</TD>
             <TD>{item.varBid}</TD>
             <TD>{item.pctChange}</TD>
             <TD>{item.bid}</TD>
             <TD>{item.ask}</TD>
-            <TD>{item.timestamp}</TD>
+            <TD>{formatDate(Number(item.timestamp))}</TD>
           </tr>
         </tbody>
       ))}
