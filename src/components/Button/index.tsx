@@ -5,11 +5,12 @@ import { ButtonComponent } from './styles'
 type Props = {
   children: React.ReactNode
   variant: 'contained' | 'outlined'
+  onClick?: () => void
 }
 
-const Button: React.FC<Props> = ({ variant, children, ...rest }) => {
+const Button: React.FC<Props> = ({ onClick, variant, children, ...rest }) => {
   return (
-    <ButtonComponent variant={variant} {...rest}>
+    <ButtonComponent onClick={onClick} variant={variant} {...rest}>
       {children}
     </ButtonComponent>
   )
