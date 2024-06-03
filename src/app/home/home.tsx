@@ -30,6 +30,7 @@ type Props = {
 
   setDays: (days: number) => void
   setCoin: (coin: string) => void
+  logout: () => void
 }
 const Home: React.FC<Props> = ({
   loading,
@@ -40,13 +41,14 @@ const Home: React.FC<Props> = ({
   setCoin,
   coin,
   days,
+  logout,
 }) => {
   return (
     <Container>
       {loading && <Progress />}
       {!loading && (
         <>
-          <Menu />
+          <Menu logout={logout} />
 
           <Content>
             <Line>

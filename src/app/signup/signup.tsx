@@ -31,7 +31,7 @@ const SignUp: React.FC = () => {
       <WrapperForm>
         <ContentForm>
           <Title>Cadastro</Title>
-          <Description>Faça seu cadastro.</Description>
+          <Description>Cadastre-se para acessar a Global Coin.</Description>
 
           <Form>
             <Input

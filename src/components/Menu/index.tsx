@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   Avatar,
   ButtonIconMenu,
@@ -22,8 +22,13 @@ import {
 } from './styles'
 import { Popover } from '@mui/material'
 
-const Menu: React.FC = () => {
-  const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
+type Props = {
+  logout: () => void
+}
+
+const Menu: React.FC<Props> = ({ logout }) => {
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
+  const [username] = useState(localStorage.getItem('DATA'))
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
@@ -50,9 +55,9 @@ const Menu: React.FC = () => {
             <Avatar>
               <PersonIconStyled />
             </Avatar>
-            <Username>Hiago</Username>
+            <Username>{username}</Username>
           </ContentUser>
-          <ButtonLogout>
+          <ButtonLogout onClick={logout}>
             <IconLogout />
           </ButtonLogout>
         </WrapperUser>

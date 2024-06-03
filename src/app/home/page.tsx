@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import Home from './home'
 import request from '@/service/request'
 import { formatDate } from '@/utils/helpers'
+import { useRouter } from 'next/navigation'
+import { APP_ROUTES_CONSTANTS } from '@/utils/constants/routing'
 
 const HomeContainer: React.FC = () => {
   const [listCoins, setListCoins] = useState<CoinType.List>([])
@@ -12,6 +14,7 @@ const HomeContainer: React.FC = () => {
   const [loading, setLoading] = useState(true)
   const [coin, setCoin] = useState('USD-BRL')
   const [days, setDays] = useState(5)
+  const routes = useRouter()
 
   const handleListCoins = async () => {
     setLoading(true)
@@ -37,6 +40,11 @@ const HomeContainer: React.FC = () => {
     setLoading(false)
   }
 
+  const logout = () => {
+    localStorage.removeItem('TOKEN')
+    routes.replace(APP_ROUTES_CONSTANTS.public.login)
+  }
+
   useEffect(() => {
     Promise.all([handleListCoins(), handleListHistoric()])
   }, [])
@@ -55,6 +63,7 @@ const HomeContainer: React.FC = () => {
       setDays={setDays}
       coin={coin}
       days={days}
+      logout={logout}
     ></Home>
   )
 }
