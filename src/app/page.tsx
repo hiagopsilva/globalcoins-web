@@ -19,10 +19,15 @@ const LoginContainer: React.FC = () => {
       setLoading(true)
       const response = await request.post('/auth', values)
 
-      router.push('/home')
-
       localStorage.setItem('TOKEN', response.data.access_token)
-      localStorage.setItem('DATA', response.data.name)
+
+      console.log({
+        user: response.data.user,
+        value: JSON.parse(response.data.user),
+      })
+      localStorage.setItem('DATA', JSON.stringify(response.data.user))
+
+      router.push('/home')
     } catch (error) {
       console.log({ error })
     } finally {
@@ -33,7 +38,7 @@ const LoginContainer: React.FC = () => {
   const goSignUp = () => {
     router.push(APP_ROUTES_CONSTANTS.public.signup)
   }
-  
+
   return (
     <Formik
       validationSchema={validationForm}

@@ -11,4 +11,10 @@ declare namespace UserType {
     password: string
     confirmPassword: string
   }
+
+  type DataStorage = {
+    id: string
+    name: string
+    email: string
+  }
 }

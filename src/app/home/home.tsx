@@ -31,6 +31,7 @@ type Props = {
   setDays: (days: number) => void
   setCoin: (coin: string) => void
   logout: () => void
+  handleFavorite: (coin: string) => Promise<void>
 }
 const Home: React.FC<Props> = ({
   loading,
@@ -42,62 +43,59 @@ const Home: React.FC<Props> = ({
   coin,
   days,
   logout,
+  handleFavorite,
 }) => {
   return (
     <Container>
       {loading && <Progress />}
-      {!loading && (
-        <>
-          <Menu logout={logout} />
+      <Menu logout={logout} />
 
-          <Content>
-            <Line>
-              <WrapperGraphic>
-                <Title>Histórico</Title>
+      <Content>
+        <Line>
+          <WrapperGraphic>
+            <Title>Histórico</Title>
 
-                <ContentGraphic>
-                  <ChartLeft
-                    listNames={listNamesForGraphic}
-                    listValues={listValuesForGraphic}
-                  />
-                </ContentGraphic>
-              </WrapperGraphic>
+            <ContentGraphic>
+              <ChartLeft
+                listNames={listNamesForGraphic}
+                listValues={listValuesForGraphic}
+              />
+            </ContentGraphic>
+          </WrapperGraphic>
 
-              <WrapperGraphic>
-                <WrapperSearch>
-                  <SelectHistoric
-                    label="Moeda"
-                    options={COINS_CONSTANTS}
-                    value={coin}
-                    onChange={setCoin}
-                  ></SelectHistoric>
-                  <SelectHistoric
-                    label="Dias"
-                    options={DAYS_CONSTANTS}
-                    value={days}
-                    onChange={setDays}
-                  ></SelectHistoric>
-                </WrapperSearch>
+          <WrapperGraphic>
+            <WrapperSearch>
+              <SelectHistoric
+                label="Moeda"
+                options={COINS_CONSTANTS}
+                value={coin}
+                onChange={setCoin}
+              ></SelectHistoric>
+              <SelectHistoric
+                label="Dias"
+                options={DAYS_CONSTANTS}
+                value={days}
+                onChange={setDays}
+              ></SelectHistoric>
+            </WrapperSearch>
 
-                <ContentGraphic>
-                  <ChartRight listNames={['USD/BRL']} listValues={[1000]} />
-                </ContentGraphic>
-              </WrapperGraphic>
-            </Line>
+            <ContentGraphic>
+              <ChartRight listNames={['USD/BRL']} listValues={[1000]} />
+            </ContentGraphic>
+          </WrapperGraphic>
+        </Line>
 
-            <WrapperTable>
-              <Title>Lista de Moedas</Title>
-              <TableStyled data={listCoins} />
+        <WrapperTable>
+          <Title>Lista de Moedas</Title>
+          <TableStyled data={listCoins} handleFavorite={handleFavorite} />
 
-              {listCoins.map((item) => (
-                <CardCoinStyled key={item.name} data={item} />
-              ))}
-            </WrapperTable>
-          </Content>
+          {listCoins.map((item) => (
+            <CardCoinStyled key={item.name} data={item} />
+          ))}
+        </WrapperTable>
+      </Content>
 
-          <Footer />
-        </>
-      )}
+      <Footer />
     </Container>
   )
 }

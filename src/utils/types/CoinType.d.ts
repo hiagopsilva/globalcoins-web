@@ -11,6 +11,7 @@ declare namespace CoinType {
     ask: string
     timestamp: string
     create_date: string
+    isFavorite: boolean
   }
 
   type List = Item[]
