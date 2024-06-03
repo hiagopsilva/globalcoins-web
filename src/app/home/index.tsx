@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import Home from './home'
 import request from '@/service/request'
+import { formatDate } from '@/utils/helpers'
 
 const HomeContainer: React.FC = () => {
   const [listCoins, setListCoins] = useState<CoinType.List>([])
@@ -27,7 +28,11 @@ const HomeContainer: React.FC = () => {
       days,
     })
 
-    setListNamesForGraphic(responseHistoric.data.listNamesForGraphic)
+    setListNamesForGraphic(
+      responseHistoric.data.listNamesForGraphic.map((timestamp: number) =>
+        formatDate(timestamp),
+      ),
+    )
     setListValuesForGraphic(responseHistoric.data.listValuesForGraphic)
     setLoading(false)
   }
