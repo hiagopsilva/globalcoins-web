@@ -1,3 +1,4 @@
+import BarChart from '@/components/BarChart'
 import CardCoin from '@/components/CardCoin'
 import Chart from '@/components/Chart'
 import Select from '@/components/Select'
@@ -84,7 +85,7 @@ export const ChartLeft = styled(Chart).attrs({
   width: 850,
 })``
 
-export const ChartRight = styled(Chart)`
+export const ChartRight = styled(BarChart)`
   width: 100%;
 `
 
@@ -108,8 +109,13 @@ export const WrapperSearch = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
+
+  div {
+    display: flex;
+    flex-direction: row;
+  }
 `
 
 export const SelectHistoric = styled(Select)``

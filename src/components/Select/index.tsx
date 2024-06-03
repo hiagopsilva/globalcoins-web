@@ -6,29 +6,27 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import { SelectStyled } from './styles'
 
-const Select = () => {
-  const [valueDay, setValueDay] = React.useState('10')
-
+type Props = {
+  options: AppType.Constants[]
+  label: string
+  value: string | number
+  onChange: (coin: any) => void
+}
+const Select: React.FC<Props> = ({ label, options, value, onChange }) => {
   const handleChange = (event: any) => {
-    setValueDay(event.target.value)
+    onChange(event.target.value)
   }
 
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth size="small">
-        <InputLabel id="demo-simple-select-label">Dias</InputLabel>
-        <SelectStyled
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={valueDay}
-          label="Dias"
-          onChange={handleChange}
-        >
-          <MenuItem value={10}>Ontem</MenuItem>
-          <MenuItem value={20}>10 Dias</MenuItem>
-          <MenuItem value={30}>30 Dias</MenuItem>
-          <MenuItem value={40}>60 Dias</MenuItem>
-          <MenuItem value={50}>90 Dias</MenuItem>
+        <InputLabel id="demo-simple-select-label">{label}</InputLabel>
+        <SelectStyled value={value} label={label} onChange={handleChange}>
+          {options.map((option) => (
+            <MenuItem key={option.key} value={option.value}>
+              {option.key}
+            </MenuItem>
+          ))}
         </SelectStyled>
       </FormControl>
     </Box>

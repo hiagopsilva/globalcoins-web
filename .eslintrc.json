@@ -5,6 +5,7 @@
   ],
   "rules": {
     "import/no-named-default": "off",
-    "@typescript-eslint/no-namespace": "off"
+    "@typescript-eslint/no-namespace": "off",
+    "react-hooks/exhaustive-deps": "off"
   }
 }

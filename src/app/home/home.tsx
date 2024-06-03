@@ -17,18 +17,29 @@ import {
 import Menu from '@/components/Menu'
 import Footer from '@/components/Footer'
 import Progress from '@/components/Progress'
+import { COINS_CONSTANTS } from '@/utils/constants/coins'
+import { DAYS_CONSTANTS } from '@/utils/constants/days'
 
 type Props = {
   loading: boolean
   listCoins: CoinType.List
   listNamesForGraphic: string[]
   listValuesForGraphic: number[]
+  coin: string
+  days: number
+
+  setDays: (days: number) => void
+  setCoin: (coin: string) => void
 }
 const Home: React.FC<Props> = ({
   loading,
   listCoins,
   listNamesForGraphic,
   listValuesForGraphic,
+  setDays,
+  setCoin,
+  coin,
+  days,
 }) => {
   return (
     <Container>
@@ -40,7 +51,8 @@ const Home: React.FC<Props> = ({
           <Content>
             <Line>
               <WrapperGraphic>
-                <Title>Gráfico de moedas</Title>
+                <Title>Histórico</Title>
+
                 <ContentGraphic>
                   <ChartLeft
                     listNames={listNamesForGraphic}
@@ -51,10 +63,18 @@ const Home: React.FC<Props> = ({
 
               <WrapperGraphic>
                 <WrapperSearch>
-                  <Title>Histórico</Title>
-
-                  <SelectHistoric></SelectHistoric>
-                  <SelectHistoric></SelectHistoric>
+                  <SelectHistoric
+                    label="Moeda"
+                    options={COINS_CONSTANTS}
+                    value={coin}
+                    onChange={setCoin}
+                  ></SelectHistoric>
+                  <SelectHistoric
+                    label="Dias"
+                    options={DAYS_CONSTANTS}
+                    value={days}
+                    onChange={setDays}
+                  ></SelectHistoric>
                 </WrapperSearch>
 
                 <ContentGraphic>
@@ -67,7 +87,6 @@ const Home: React.FC<Props> = ({
               <Title>Lista de Moedas</Title>
               <TableStyled data={listCoins} />
 
-              <>{console.log({ listCoins })}</>
               {listCoins.map((item) => (
                 <CardCoinStyled key={item.name} data={item} />
               ))}
