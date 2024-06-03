@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Avatar,
   ButtonIconMenu,
@@ -23,12 +23,6 @@ import {
 import { Popover } from '@mui/material'
 
 const Menu: React.FC = () => {
-  const [valueOptionMenu, setValueOptionMenu] = useState('Home')
-
-  const handleOptionMenu = (option: string) => {
-    setValueOptionMenu(option)
-  }
-
   const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -42,22 +36,13 @@ const Menu: React.FC = () => {
   const open = Boolean(anchorEl)
   const id = open ? 'simple-popover' : undefined
 
-  const optionsMenu = ['Home', 'Favoritos']
   return (
     <>
       <Container>
         <NameCompany>Global Coins</NameCompany>
 
         <WrapperOptionsMenu>
-          {optionsMenu.map((item) => (
-            <Option
-              key={item}
-              active={valueOptionMenu === item}
-              onClick={() => handleOptionMenu(item)}
-            >
-              {item}
-            </Option>
-          ))}
+          <Option>Home</Option>
         </WrapperOptionsMenu>
 
         <WrapperUser>
@@ -74,7 +59,7 @@ const Menu: React.FC = () => {
       </Container>
 
       <ContainerMenuMobile>
-        <NamePageMenu>{valueOptionMenu}</NamePageMenu>
+        <NamePageMenu>Home</NamePageMenu>
 
         <WrapperAvatarMenuMobile>
           <ContentUser>
@@ -99,10 +84,6 @@ const Menu: React.FC = () => {
               <ContainerPopover>
                 <OptionMenuPopover>
                   <TextPopover>Home</TextPopover>
-                </OptionMenuPopover>
-
-                <OptionMenuPopover>
-                  <TextPopover>Favoritos</TextPopover>
                 </OptionMenuPopover>
 
                 <OptionMenuPopover>

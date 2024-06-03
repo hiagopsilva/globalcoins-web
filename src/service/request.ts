@@ -5,7 +5,7 @@ const request = axios.create({
   headers: {
     'Content-Type': 'application/json',
     Authorization:
-      localStorage.getItem('TOKEN') ||
+      (localStorage && localStorage.getItem('TOKEN')) ||
       'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImVtYWlsIjoiam9obmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcxNzM4MjQ0MiwiZXhwIjoxNzE3NDE4NDQyfQ.Uzw1bk10f1BUELYKyQZdkKn5snbncHX8HJf_gpXe2FA',
   },
 })

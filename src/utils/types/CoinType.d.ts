@@ -14,4 +14,10 @@ declare namespace CoinType {
   }
 
   type List = Item[]
+
+  type Response = {
+    listCoins: List
+    listNamesForGraphic: string[]
+    listValuesForGraphic: string[]
+  }
 }

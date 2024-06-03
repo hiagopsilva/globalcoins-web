@@ -3,10 +3,6 @@ import PersonIcon from '@mui/icons-material/Person'
 import ExitToAppIcon from '@mui/icons-material/ExitToApp'
 import MenuIcon from '@mui/icons-material/Menu'
 
-type PropsOptions = {
-  active?: boolean
-}
-
 export const Container = styled.div`
   border-bottom: 1px solid #ddd;
 
@@ -30,18 +26,12 @@ export const WrapperOptionsMenu = styled.div`
   display: flex;
 `
 
-export const Option = styled.div<PropsOptions>`
+export const Option = styled.span`
   margin-right: 16px;
   cursor: pointer;
 
-  & + & {
-    padding-left: 16px;
-
-    border-left: 1px solid #ddd;
-  }
-
-  color: ${(props) => (props.active ? '#ec8f21' : '#333')};
-  font-weight: ${(props) => (props.active ? 'bold' : 'normal')};
+  color: #ec8f21;
+  font-weight: bold;
 `
 
 export const WrapperUser = styled.div`

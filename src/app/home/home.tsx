@@ -4,7 +4,6 @@ import {
   Container,
   Content,
   ContentGraphic,
-  Line,
   SelectHistoric,
   TableStyled,
   Title,
@@ -15,48 +14,58 @@ import {
 import Menu from '@/components/Menu'
 import Chart from '@/components/Chart'
 import Footer from '@/components/Footer'
+import Progress from '@/components/Progress'
 
 type Props = {
+  loading: boolean
   listCoins: CoinType.List
+  listNamesForGraphic: string[]
+  listValuesForGraphic: number[]
 }
-const Home: React.FC<Props> = ({ listCoins }) => {
+const Home: React.FC<Props> = ({
+  loading,
+  listCoins,
+  listNamesForGraphic,
+  listValuesForGraphic,
+}) => {
+  console.log({ listCoins })
   return (
     <Container>
-      <Menu />
+      {loading && <Progress />}
+      {!loading && (
+        <>
+          <Menu />
 
-      <Content>
-        <Line>
-          <WrapperGraphic>
-            <Title>Gráfico de moedas</Title>
-            <ContentGraphic>
-              <Chart />
-            </ContentGraphic>
-          </WrapperGraphic>
+          <Content>
+            <WrapperGraphic>
+              <WrapperSearch>
+                <Title>Histórico</Title>
 
-          <WrapperGraphic>
-            <WrapperSearch>
-              <Title>Histórico</Title>
+                <SelectHistoric></SelectHistoric>
+              </WrapperSearch>
 
-              <SelectHistoric></SelectHistoric>
-            </WrapperSearch>
+              <ContentGraphic>
+                <Chart
+                  listNames={listNamesForGraphic}
+                  listValues={listValuesForGraphic}
+                />
+              </ContentGraphic>
+            </WrapperGraphic>
 
-            <ContentGraphic>
-              <Chart />
-            </ContentGraphic>
-          </WrapperGraphic>
-        </Line>
+            <WrapperTable>
+              <Title>Lista de Moedas</Title>
+              <TableStyled data={listCoins} />
 
-        <WrapperTable>
-          <Title>Lista de Moedas</Title>
-          <TableStyled data={listCoins} />
+              <>{console.log({ listCoins })}</>
+              {listCoins.map((item) => (
+                <CardCoinStyled key={item.name} data={item} />
+              ))}
+            </WrapperTable>
+          </Content>
 
-          {listCoins.map((item) => (
-            <CardCoinStyled key={item.name} data={item} />
-          ))}
-        </WrapperTable>
-      </Content>
-
-      <Footer />
+          <Footer />
+        </>
+      )}
     </Container>
   )
 }

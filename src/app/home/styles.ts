@@ -48,34 +48,12 @@ export const CardCoinStyled = styled(CardCoin)`
   }
 `
 
-export const Line = styled.div`
-  margin: 16px 64px;
-  display: flex;
-  flex-direction: row;
-
-  @media (min-width: 200px) and (max-width: 767px) {
-    margin: 8px 16px;
-
-    flex-direction: column;
-  }
-`
-
 export const WrapperGraphic = styled.div`
-  width: 50%;
-
-  & + & {
-    margin-left: 16px;
-  }
+  margin: 16px 64px;
 
   @media (min-width: 200px) and (max-width: 767px) {
-    width: 100%;
-
     overflow-x: scroll;
-
-    & + & {
-      margin-left: 0;
-      margin-top: 16px;
-    }
+    margin: 8px 16px;
   }
 `
 
