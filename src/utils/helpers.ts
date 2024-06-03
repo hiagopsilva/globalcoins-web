@@ -7,3 +7,7 @@ export const formatDate = (dateOrTimestamp: string | number): string => {
 
   return moment(new Date(dateOrTimestamp * 1000)).format('DD/MM')
 }
+
+export const checkUserAuthenticated = (): boolean => {
+  return !!localStorage.getItem('TOKEN')
+}

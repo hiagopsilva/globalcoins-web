@@ -30,6 +30,7 @@ export const WrapperForm = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `
 
 export const ContentForm = styled.div``
@@ -61,3 +62,12 @@ export const Input = styled(TextInput)`
 `
 
 export const ButtonStyled = styled(Button)``
+
+export const SignUpLink = styled.span`
+  margin-top: 32px;
+  font-size: 14px;
+  color: #6f00ff;
+  cursor: pointer;
+
+  text-decoration: underline;
+`

@@ -8,14 +8,20 @@ import {
   Form,
   Input,
   Logo,
+  SignUpLink,
   Title,
   WrapperForm,
   WrapperLogo,
 } from './styles'
 
 import { FormikProps, useFormikContext } from 'formik'
+import Progress from '@/components/Progress'
 
-const Login: React.FC = () => {
+type Props = {
+  loading: boolean
+  goSignUp: () => void
+}
+const Login: React.FC<Props> = ({ loading, goSignUp }) => {
   const {
     values,
     submitForm,
@@ -24,6 +30,7 @@ const Login: React.FC = () => {
 
   return (
     <Container>
+      {loading && <Progress />}
       <WrapperLogo>
         <Logo src={require('../../assets/logo.png')} alt="Global Coins" />
       </WrapperLogo>
@@ -53,6 +60,8 @@ const Login: React.FC = () => {
             </ButtonStyled>
           </Form>
         </ContentForm>
+
+        <SignUpLink onClick={goSignUp}>Cadastrar</SignUpLink>
       </WrapperForm>
     </Container>
   )
