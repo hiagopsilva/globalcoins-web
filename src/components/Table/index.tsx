@@ -6,9 +6,10 @@ import { formatDate } from '@/utils/helpers'
 
 type Props = {
   data: CoinType.List
+  handleFavorite: (coin: string) => Promise<void>
 }
 
-const Table: FC<Props> = ({ data, ...rest }) => {
+const Table: FC<Props> = ({ data, handleFavorite, ...rest }) => {
   return (
     <Wrapper {...rest}>
       <thead>
@@ -27,9 +28,13 @@ const Table: FC<Props> = ({ data, ...rest }) => {
 
       {data.map((item) => (
         <tbody key={item.name}>
+          <>{console.log({ item })}</>
           <tr className="line">
             <TD>
-              <CheckboxFavorite />
+              <CheckboxFavorite
+                value={item.isFavorite}
+                onClick={() => handleFavorite(`${item.code}-${item.codein}`)}
+              />
             </TD>
             <TD>
               ({item.code}-{item.codein}) - {item.name}

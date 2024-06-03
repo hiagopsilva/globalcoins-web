@@ -11,3 +11,13 @@ export const formatDate = (dateOrTimestamp: string | number): string => {
 export const checkUserAuthenticated = (): boolean => {
   return !!localStorage.getItem('TOKEN')
 }
+
+export const getUserDataStorage = (): UserType.DataStorage | null => {
+  const userStorage = localStorage.getItem('DATA')
+
+  if (!userStorage) {
+    return null
+  }
+
+  return JSON.parse(userStorage)
+}

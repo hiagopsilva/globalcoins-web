@@ -16,6 +16,10 @@ const PrivateRoute: React.FC<Props> = ({ children }) => {
     if (!isUserAuthenticated) {
       push(APP_ROUTES_CONSTANTS.public.login)
     }
+
+    if (isUserAuthenticated && localStorage.getItem('DATA') === null) {
+      push(APP_ROUTES_CONSTANTS.public.login)
+    }
   }, [isUserAuthenticated, push])
 
   return <>{isUserAuthenticated ? children : null}</>

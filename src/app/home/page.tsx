@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 import Home from './home'
 import request from '@/service/request'
-import { formatDate } from '@/utils/helpers'
+import { formatDate, getUserDataStorage } from '@/utils/helpers'
 import { useRouter } from 'next/navigation'
 import { APP_ROUTES_CONSTANTS } from '@/utils/constants/routing'
 
@@ -19,6 +19,8 @@ const HomeContainer: React.FC = () => {
   const handleListCoins = async () => {
     setLoading(true)
     const response = await request.get('/coins/list')
+
+    console.log({ response })
 
     setListCoins(response.data)
     setLoading(false)
@@ -45,6 +47,15 @@ const HomeContainer: React.FC = () => {
     routes.replace(APP_ROUTES_CONSTANTS.public.login)
   }
 
+  const handleFavorite = async (coinFavorite: string) => {
+    await request.post(`/coins/favorite`, {
+      coin: coinFavorite,
+      userId: getUserDataStorage()!.id,
+    })
+
+    await handleListCoins()
+  }
+
   useEffect(() => {
     Promise.all([handleListCoins(), handleListHistoric()])
   }, [])
@@ -64,6 +75,7 @@ const HomeContainer: React.FC = () => {
       coin={coin}
       days={days}
       logout={logout}
+      handleFavorite={handleFavorite}
     ></Home>
   )
 }

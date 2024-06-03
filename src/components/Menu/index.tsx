@@ -21,6 +21,7 @@ import {
   WrapperUser,
 } from './styles'
 import { Popover } from '@mui/material'
+import { getUserDataStorage } from '@/utils/helpers'
 
 type Props = {
   logout: () => void
@@ -28,7 +29,7 @@ type Props = {
 
 const Menu: React.FC<Props> = ({ logout }) => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null)
-  const [username] = useState(localStorage.getItem('DATA'))
+  const [username] = useState(getUserDataStorage()!.name)
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget)
