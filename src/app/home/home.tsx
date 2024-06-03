@@ -14,6 +14,7 @@ import {
 } from './styles'
 import Menu from '@/components/Menu'
 import Chart from '@/components/Chart'
+import Footer from '@/components/Footer'
 
 const Home: React.FC = () => {
   return (
@@ -51,6 +52,8 @@ const Home: React.FC = () => {
           ))}
         </WrapperTable>
       </Content>
+
+      <Footer />
     </Container>
   )
 }
