@@ -1,4 +1,4 @@
-# Global Soins
+# Global Coins
 
 ## Descrição
 
