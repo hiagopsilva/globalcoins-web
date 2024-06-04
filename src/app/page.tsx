@@ -23,7 +23,7 @@ const LoginContainer: React.FC = () => {
 
       localStorage.setItem('DATA', JSON.stringify(response.data.user))
 
-      router.push('/home')
+      router.push(APP_ROUTES_CONSTANTS.private.home)
     } catch (error) {
       console.log({ error })
     } finally {
