@@ -53,6 +53,7 @@ O frontend inclui as seguintes funcionalidades:
 - Visualizar as 10 moedas.
 - Favoritar moedas.
 - Visualizar o histórico de cotação de moedas.
+- Atualização de dados RealTime.
 
 ## Licença
 
