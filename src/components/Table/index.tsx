@@ -28,7 +28,6 @@ const Table: FC<Props> = ({ data, handleFavorite, ...rest }) => {
 
       {data.map((item) => (
         <tbody key={item.name}>
-          <>{console.log({ item })}</>
           <tr className="line">
             <TD>
               <CheckboxFavorite

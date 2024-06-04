@@ -19,6 +19,7 @@ import Footer from '@/components/Footer'
 import Progress from '@/components/Progress'
 import { COINS_CONSTANTS } from '@/utils/constants/coins'
 import { DAYS_CONSTANTS } from '@/utils/constants/days'
+import AlertToast from '@/components/Alert'
 
 type Props = {
   loading: boolean
@@ -27,6 +28,7 @@ type Props = {
   listValuesForGraphic: number[]
   coin: string
   days: number
+  loadingBackground: boolean
 
   setDays: (days: number) => void
   setCoin: (coin: string) => void
@@ -44,9 +46,11 @@ const Home: React.FC<Props> = ({
   days,
   logout,
   handleFavorite,
+  loadingBackground,
 }) => {
   return (
     <Container>
+      {loadingBackground && <AlertToast />}
       {loading && <Progress />}
       <Menu logout={logout} />
 

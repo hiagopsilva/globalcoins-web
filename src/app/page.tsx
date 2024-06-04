@@ -21,10 +21,6 @@ const LoginContainer: React.FC = () => {
 
       localStorage.setItem('TOKEN', response.data.access_token)
 
-      console.log({
-        user: response.data.user,
-        value: JSON.parse(response.data.user),
-      })
       localStorage.setItem('DATA', JSON.stringify(response.data.user))
 
       router.push('/home')

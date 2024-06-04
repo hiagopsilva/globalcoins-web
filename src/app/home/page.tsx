@@ -7,6 +7,8 @@ import { formatDate, getUserDataStorage } from '@/utils/helpers'
 import { useRouter } from 'next/navigation'
 import { APP_ROUTES_CONSTANTS } from '@/utils/constants/routing'
 
+import io from 'socket.io-client'
+
 const HomeContainer: React.FC = () => {
   const [listCoins, setListCoins] = useState<CoinType.List>([])
   const [listNamesForGraphic, setListNamesForGraphic] = useState<string[]>([])
@@ -14,16 +16,14 @@ const HomeContainer: React.FC = () => {
   const [loading, setLoading] = useState(true)
   const [coin, setCoin] = useState('USD-BRL')
   const [days, setDays] = useState(5)
+  const [loadingBackground, setLoadingBackground] = useState(false)
+
   const routes = useRouter()
 
   const handleListCoins = async () => {
-    setLoading(true)
     const response = await request.get('/coins/list')
 
-    console.log({ response })
-
     setListCoins(response.data)
-    setLoading(false)
   }
 
   const handleListHistoric = async () => {
@@ -48,16 +48,37 @@ const HomeContainer: React.FC = () => {
   }
 
   const handleFavorite = async (coinFavorite: string) => {
+    setLoading(true)
     await request.post(`/coins/favorite`, {
       coin: coinFavorite,
       userId: getUserDataStorage()!.id,
     })
 
     await handleListCoins()
+    setLoading(false)
   }
+
+  const handleUpdateListCoins = async () => {
+    setLoadingBackground(true)
+
+    await handleListCoins()
+
+    setLoadingBackground(false)
+  }
+  useEffect(() => {
+    const socket = io('http://localhost:3333', { transports: ['websocket'] })
+
+    socket.on('UPDATE_LIST_COINS', () => {
+      handleUpdateListCoins()
+    })
+
+    return () => socket.disconnect()
+  }, [])
 
   useEffect(() => {
     Promise.all([handleListCoins(), handleListHistoric()])
+
+    setLoading(false)
   }, [])
 
   useEffect(() => {
@@ -76,6 +97,7 @@ const HomeContainer: React.FC = () => {
       days={days}
       logout={logout}
       handleFavorite={handleFavorite}
+      loadingBackground={loadingBackground}
     ></Home>
   )
 }

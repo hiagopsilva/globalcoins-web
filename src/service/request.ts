@@ -5,6 +5,7 @@ const request = axios.create({
   headers: {
     'Content-Type': 'application/json',
     Authorization: localStorage.getItem('TOKEN'),
+    'access-control-allow-origin': '*',
   },
 })
 

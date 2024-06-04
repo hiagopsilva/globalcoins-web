@@ -17,8 +17,6 @@ export default function RootLayout({
 
   const isPublicPage = checkIsPublicRoute(pathname)
 
-  console.log({ isPublicPage })
-
   return (
     <html lang="pt-BR">
       <body className={inter.className}>
