@@ -17,7 +17,6 @@ const SignUpContainer: React.FC = () => {
       const response = await request.post('/users/create', values)
 
       if (response) {
-        alert('Usuário criado com sucesso')
         router.push(APP_ROUTES_CONSTANTS.public.login)
       }
     } catch (error) {
