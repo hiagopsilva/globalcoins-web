@@ -6,8 +6,8 @@ import { initialValues, validationForm } from './form'
 
 import { Formik } from 'formik'
 import request from '@/service/request'
-import { useRouter } from 'next/router'
 import { APP_ROUTES_CONSTANTS } from '@/utils/constants/routing'
+import { useRouter } from 'next/navigation'
 
 const SignUpContainer: React.FC = () => {
   const router = useRouter()
