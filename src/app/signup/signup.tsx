@@ -14,8 +14,13 @@ import {
 } from './styles'
 
 import { FormikProps, useFormikContext } from 'formik'
+import Progress from '@/components/Progress'
 
-const SignUp: React.FC = () => {
+type Props = {
+  loading: boolean
+}
+
+const SignUp: React.FC<Props> = ({ loading }) => {
   const {
     values,
     submitForm,
@@ -24,6 +29,7 @@ const SignUp: React.FC = () => {
 
   return (
     <Container>
+      {loading && <Progress />}
       <WrapperLogo>
         <Logo src={require('../../assets/logo.png')} alt="Global Coins" />
       </WrapperLogo>

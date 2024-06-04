@@ -24,8 +24,9 @@ const LoginContainer: React.FC = () => {
       localStorage.setItem('DATA', JSON.stringify(response.data.user))
 
       router.push(APP_ROUTES_CONSTANTS.private.home)
-    } catch (error) {
-      console.log({ error })
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      alert(error.response.data.message)
     } finally {
       setLoading(false)
     }
