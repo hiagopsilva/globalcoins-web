@@ -1,4 +1,10 @@
-# Global Coins
+
+
+<div style="text-align:center">
+  <img src="./src/assets/logo.png" alt="Descrição da imagem" width="100" style=""/>
+  <span>Global Coins</span>
+</div>
+
 
 ## Descrição
 
