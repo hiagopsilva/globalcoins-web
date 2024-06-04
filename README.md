@@ -1,8 +1,6 @@
-
-
 <div style="text-align:center">
   <img src="./src/assets/logo.png" alt="Descrição da imagem" width="100" style=""/>
-  <span>Global Coins</span>
+  <h3>Global Coins</h3>
 </div>
 
 
@@ -11,7 +9,10 @@
 Este é um projeto prático desenvolvido como parte de um processo seletivo. O objetivo é demonstrar habilidades técnicas e práticas em desenvolvimento web utilizando React com Next.js no frontend, e Material-UI para a estilização dos componentes. O projeto utiliza as rotas padrão fornecidas pelo Next.js e layout responsivo.
 
 ## DEMO
-![alt text](image.png)
+<div style="display:flex;justify-content:center;align-items:center">
+    <img src="./src/assets/demo.png" alt="Descrição da imagem" width="490" height="300" style=""/>
+    <img src="./src/assets/demo-mobile.png" alt="Descrição da imagem" width="180" style=""/>
+</div>
 
 ## Tecnologias Utilizadas
 
